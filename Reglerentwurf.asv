@@ -1,0 +1,28 @@
+clc;
+clear all;
+Tu_ms = 73;
+Ta_ms = 304;
+Ks_mbar = 45;
+%% PI Regler nach Chien, Rhones, Reswick
+if Ta_ms/Tu_ms > 3; disp('Verfahren kann verwendet werden'); else;...
+disp('Verfahren kann nicht verwendet werden'); end
+
+% Reglerparamter für 0 % Überschwingen
+Kp_0_PI = 0.35 * ( Ta_ms/(Tu_ms*Ks_mbar) ); % Kp [1/mBar]
+Tn_ms_0_PI = 1.2 * Ta_ms;
+
+% Reglerparamter für 20 % Überschwingen
+Kp_20 = 0.60 * ( Ta_ms/(Tu_ms*Ks_mbar) ); % Kp [1/mBar]
+Tn_ms_20 = 1.0 * Ta_ms;
+
+%% PID Regler nach Chien, Rhones, Reswick
+if Ta_ms/Tu_ms > 3; disp('Verfahren kann verwendet werden'); else;...
+disp('Verfahren kann nicht verwendet werden'); end
+
+% Reglerparamter für 0 % Überschwingen
+Kp_0_PID = 0.35 * ( Ta_ms/(Tu_ms*Ks_mbar) ); % Kp [1/mBar]
+Tn_ms_0 = 1.2 * Ta_ms;
+
+% Reglerparamter für 20 % Überschwingen
+Kp_20 = 0.60 * ( Ta_ms/(Tu_ms*Ks_mbar) ); % Kp [1/mBar]
+Tn_ms_20 = 1.0 * Ta_ms;
